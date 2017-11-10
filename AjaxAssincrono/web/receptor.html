@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body onload="loadDoc()" id ="corpo">
+<script>
+i = 0;
+function loadDoc() {
+  $.ajax({
+    url: './ServletRegente?operacao=salvar',
+    async: true
+    }).done(function(data) {
+        if (i === 0){
+            document.getElementById("corpo").style.backgroundColor = 'black';
+            i++;
+        }else{
+            document.getElementById("corpo").style.backgroundColor = 'white';
+            i = 0;
+        }
+        loadDoc();
+    });
+}
+</script>
+olá
+</body>
+</html>
